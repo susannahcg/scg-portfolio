@@ -67,14 +67,17 @@
             color: #333;
         }
 
-        /* Image Gallery Grid */
+        /* Image Gallery Masonry Layout */
         .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+            /* Sets column width and gap; lets browser decide column count dynamically */
+            column-width: 250px; 
+            column-gap: 20px;
         }
 
         .gallery-item {
+            /* Prevents a single item from splitting across columns */
+            break-inside: avoid; 
+            margin-bottom: 20px; /* Vertical gap between items */
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -87,8 +90,7 @@
 
         .gallery-item img {
             width: 100%;
-            height: 200px;
-            object-fit: cover; /* Ensures images crop nicely without distorting */
+            height: auto; /* Maintains natural aspect ratio */
             display: block;
         }
     </style>
@@ -108,22 +110,22 @@
         <h2>Image Gallery</h2>
         <div class="image-gallery">
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image 1">
+                <img src="https://via.placeholder.com/300x400" alt="Portrait Image">
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image 2">
+                <img src="https://via.placeholder.com/500x250" alt="Landscape Image">
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image 3">
+                <img src="https://via.placeholder.com/300x300" alt="Square Image">
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image 4">
+                <img src="https://via.placeholder.com/300x600" alt="Tall Portrait Image">
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image 5">
+                <img src="https://via.placeholder.com/600x300" alt="Wide Panoramic Image">
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image 6">
+                <img src="https://via.placeholder.com/350x450" alt="Standard Image">
             </div>
         </div>
     </main>
