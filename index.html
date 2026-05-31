@@ -3,147 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCG Portfolio</title>
+    <title>SCG Gallery</title>
     <style>
-        /* Reset and basic styles */
+        /* Basic reset to remove default margins */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: #333;
-            display: flex;
+            font-family: Arial, sans-serif;
+            display: flex; /* Creates a side-by-side layout */
             min-height: 100vh;
-            background-color: #ffffff;
         }
-        
-/* Sidebar Layout */
-        aside {
+
+        /* Sidebar Styling */
+        .sidebar {
             width: 250px;
-            padding: 40px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            /* Keeps the sidebar fixed on the left while gallery scrolls */
             position: fixed;
             height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            border-right: 1px solid #eee;
         }
 
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #2e7d32; /* Green heading */
+        .sidebar h1 {
+            color: #2ecc71; /* Green heading */
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul li a {
             text-decoration: none;
-            margin-bottom: 2rem;
-            letter-spacing: -1px;
+            color: #333;
+            font-size: 18px;
+            display: block;
+            padding: 5px 0;
         }
 
-        nav ul {
-            list-style: none;
+        .sidebar ul li a:hover {
+            color: #2ecc71; /* Turns green on hover */
         }
 
-        nav ul li {
-            margin-bottom: 1rem;
+        /* Main Content / Gallery Styling */
+        .main-content {
+            margin-left: 250px; /* Matches the width of the sidebar to prevent overlap */
+            padding: 40px;
+            flex-grow: 1;
         }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #666;
-            font-size: 1rem;
-            transition: color 0.2s ease;
+        .main-content h2 {
+            margin-bottom: 20px;
+            color: #333;
         }
 
-        nav ul li a:hover, 
-        nav ul li a.active {
-            color: #2e7d32;
-        }
-        
-        /* The Gallery Container */
-        .gallery-container {
+        /* Image Gallery Grid */
+        .image-gallery {
             display: grid;
-            /* Auto-fit creates as many columns as will fit, with a minimum width of 250px */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            /* Adjust the gap between grid items */
-            grid-gap: 15px;
-            /* Gives the grid a flexible implicit row height */
-            grid-auto-rows: 250px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-        /* The Gallery Item (Wrapper) */
         .gallery-item {
             overflow: hidden;
-            border-radius: 2px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
         }
 
         .gallery-item:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
-        /* The Images */
         .gallery-item img {
             width: 100%;
-            height: 100%;
-            /* 'cover' ensures the image fills the box, cropping gracefully if aspect ratios don't match */
-            object-fit: cover;
-            /* Centers the crop area */
-            object-position: center; 
+            height: 200px;
+            object-fit: cover; /* Ensures images crop nicely without distorting */
             display: block;
-        }
-
-        /* Optional: Making specific items span multiple rows/columns for a dynamic look */
-        /* You can remove these classes if you want a uniform, clean grid */
-        .gallery-item.landscape {
-            grid-column: span 2;
-        }
-
-        .gallery-item.tall {
-            grid-row: span 2;
-        }
-
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 600px) {
-            .gallery-container {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                grid-auto-rows: 150px;
-            }
-            .gallery-item.landscape {
-                grid-column: span 1;
-            }
         }
     </style>
 </head>
 <body>
 
-    <div class="gallery-container">
-        <div class="gallery-item">
-            <img src="https://picsum.photos/500/500?random=1" alt="Gallery Image 1">
-        </div>
+    <nav class="sidebar">
+        <h1>SCG</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resume.html">Resume</a></li>
+        </ul>
+    </nav>
 
-        <div class="gallery-item landscape">
-            <img src="https://picsum.photos/800/400?random=2" alt="Gallery Image 2">
+    <main class="main-content">
+        <h2>Image Gallery</h2>
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Gallery Image 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Gallery Image 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Gallery Image 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Gallery Image 4">
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Gallery Image 5">
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Gallery Image 6">
+            </div>
         </div>
-
-        <div class="gallery-item tall">
-            <img src="https://picsum.photos/400/800?random=3" alt="Gallery Image 3">
-        </div>
-
-        <div class="gallery-item">
-            <img src="https://picsum.photos/600/600?random=4" alt="Gallery Image 4">
-        </div>
-
-        <div class="gallery-item">
-            <img src="https://picsum.photos/700/500?random=5" alt="Gallery Image 5">
-        </div>
-
-        <div class="gallery-item">
-            <img src="https://picsum.photos/500/700?random=6" alt="Gallery Image 6">
-        </div>
-    </div>
+    </main>
 
 </body>
 </html>
